@@ -40,7 +40,13 @@ function cacheElements() {
     header: document.querySelector('[data-header]'),
     goTopBtn: document.querySelector('[data-go-top]'),
     statNumbers: document.querySelectorAll('.stat-number'),
-    statsSection: document.querySelector('.stats')
+    statsSection: document.querySelector('.stats'),
+    proposalLayer: document.querySelector('[data-proposal-layer]'),
+    proposalDrawer: document.querySelector('#proposal-drawer'),
+    proposalForm: document.querySelector('[data-proposal-form]'),
+    proposalTriggers: document.querySelectorAll('.js-open-proposal'),
+    proposalCloseButtons: document.querySelectorAll('[data-proposal-close]'),
+    proposalWhatsappBtn: document.querySelector('[data-proposal-whatsapp]')
   };
 }
 
@@ -54,37 +60,54 @@ function setupNavbar() {
     return;
   }
   
-  const toggleNavbar = () => {
-    navbar.classList.toggle('active');
-    overlay.classList.toggle('active');
-    
-    // Accessibility: update aria-expanded
-    const isExpanded = navbar.classList.contains('active');
-    if (navOpenBtn) navOpenBtn.setAttribute('aria-expanded', isExpanded);
-    if (navCloseBtn) navCloseBtn.setAttribute('aria-expanded', isExpanded);
-    
-    // Gerenciar foco para acessibilidade
-    if (isExpanded && navCloseBtn) {
+  const isMobileMenu = () => window.innerWidth < 992;
+
+  const setNavbarState = (shouldOpen) => {
+    if (!isMobileMenu()) {
+      navbar.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.classList.remove('menu-open');
+      if (navOpenBtn) navOpenBtn.setAttribute('aria-expanded', 'false');
+      if (navCloseBtn) navCloseBtn.setAttribute('aria-expanded', 'false');
+      return;
+    }
+
+    navbar.classList.toggle('active', shouldOpen);
+    overlay.classList.toggle('active', shouldOpen);
+
+    if (navOpenBtn) navOpenBtn.setAttribute('aria-expanded', String(shouldOpen));
+    if (navCloseBtn) navCloseBtn.setAttribute('aria-expanded', String(shouldOpen));
+
+    document.body.classList.toggle('menu-open', shouldOpen);
+
+    if (shouldOpen && navCloseBtn) {
       setTimeout(() => navCloseBtn.focus(), 100);
     }
   };
-  
-  // Event listeners com verificação de existência
-  [navOpenBtn, navCloseBtn, overlay].forEach(btn => {
-    if (btn) btn.addEventListener('click', toggleNavbar);
-  });
-  
-  // Fechar navbar ao clicar em links
+
+  const openNavbar = () => setNavbarState(true);
+  const closeNavbar = () => setNavbarState(false);
+
+  if (navOpenBtn) navOpenBtn.addEventListener('click', openNavbar);
+  if (navCloseBtn) navCloseBtn.addEventListener('click', closeNavbar);
+  if (overlay) overlay.addEventListener('click', closeNavbar);
+
   if (navLinks && navLinks.length) {
     navLinks.forEach(link => {
-      link.addEventListener('click', toggleNavbar);
+      link.addEventListener('click', () => {
+        if (navbar.classList.contains('active')) closeNavbar();
+      });
     });
   }
+
+  window.addEventListener('resize', () => {
+    if (!isMobileMenu()) closeNavbar();
+  });
   
   // Fechar com tecla Escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && navbar?.classList.contains('active')) {
-      toggleNavbar();
+      closeNavbar();
     }
   });
 }
@@ -183,6 +206,173 @@ function setupStatsObserver() {
   }
 }
 
+
+// ==================== PREMIUM INTERACTIONS ====================
+function setupRevealAnimations() {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealTargets = document.querySelectorAll(
+    '.hero > .container > *, .solutions .section-subtitle, .solutions .section-title, .solutions .section-text, .solution-card, .package .section-subtitle, .package .section-title, .package .section-text, .package-card, .services-note, .about .section-subtitle, .about .section-title, .about .section-text, .about-image, .feature-card, .cta .section-subtitle, .cta .section-title, .cta .section-text, .cta-actions, .cta-contact-list li, .footer-brand, .footer-contact, .footer-form'
+  );
+
+  if (!revealTargets.length) return;
+
+  revealTargets.forEach((element, index) => {
+    element.classList.add('reveal-up');
+    element.style.transitionDelay = prefersReducedMotion ? '0s' : `${Math.min(index * 35, 260)}ms`;
+  });
+
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    revealTargets.forEach(element => element.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.14,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  revealTargets.forEach(element => observer.observe(element));
+}
+
+function setupPointerDepth() {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
+  const interactiveCards = document.querySelectorAll('.solution-card, .package-card, .feature-card');
+  interactiveCards.forEach(card => {
+    card.addEventListener('pointermove', (event) => {
+      if (window.innerWidth < 992) return;
+      const rect = card.getBoundingClientRect();
+      const offsetX = (event.clientX - rect.left) / rect.width - 0.5;
+      const offsetY = (event.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `translateY(-3px) rotateX(${(-offsetY * 1.2).toFixed(2)}deg) rotateY(${(offsetX * 1.2).toFixed(2)}deg)`;
+    });
+
+    card.addEventListener('pointerleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
+
+
+// ==================== PROPOSAL DRAWER ====================
+function setupProposalDrawer() {
+  const { proposalLayer, proposalDrawer, proposalForm, proposalTriggers, proposalCloseButtons, proposalWhatsappBtn, navbar } = App.elements;
+
+  if (!proposalLayer || !proposalDrawer || !proposalForm || !proposalTriggers?.length) return;
+
+  const serviceField = proposalForm.querySelector('[name="servico"]');
+  const firstInput = proposalForm.querySelector('input, select, textarea');
+
+  const collectBriefing = () => {
+    const formData = new FormData(proposalForm);
+    const service = formData.get('servico') || 'Proposta Geral';
+    const lines = [
+      'Olá GESTECH, gostaria de solicitar uma proposta.',
+      '',
+      `Nome: ${formData.get('nome') || ''}`,
+      `Empresa: ${formData.get('empresa') || ''}`,
+      `Telefone / WhatsApp: ${formData.get('telefone') || ''}`,
+      `Email: ${formData.get('email') || ''}`,
+      `Serviço pretendido: ${service}`,
+      `Prazo desejado: ${formData.get('prazo') || 'Não definido'}`,
+      '',
+      'Objectivo principal:',
+      `${formData.get('objetivo') || ''}`,
+      '',
+      'Situação actual / necessidade:',
+      `${formData.get('necessidade') || ''}`,
+      '',
+      `Orçamento estimado: ${formData.get('orcamento') || 'Não informado'}`,
+      `Website / redes sociais: ${formData.get('website') || 'Não informado'}`,
+      '',
+      'Observações adicionais:',
+      `${formData.get('observacoes') || 'Sem observações adicionais.'}`
+    ];
+
+    return {
+      subject: `Pedido de proposta - ${service}`,
+      body: lines.join('\n')
+    };
+  };
+
+  const openProposal = (service = '') => {
+    if (serviceField && service) serviceField.value = service;
+
+    proposalLayer.hidden = false;
+    requestAnimationFrame(() => proposalLayer.classList.add('active'));
+    proposalDrawer.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('proposal-open');
+
+    if (navbar?.classList.contains('active')) {
+      navbar.classList.remove('active');
+      const overlay = App.elements.overlay;
+      if (overlay) overlay.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    }
+
+    setTimeout(() => {
+      if (firstInput) firstInput.focus();
+    }, 120);
+  };
+
+  const closeProposal = () => {
+    proposalLayer.classList.remove('active');
+    proposalDrawer.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('proposal-open');
+
+    setTimeout(() => {
+      if (!proposalLayer.classList.contains('active')) proposalLayer.hidden = true;
+    }, 340);
+  };
+
+  proposalTriggers.forEach(trigger => {
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      const service = trigger.dataset.service || '';
+      openProposal(service);
+    });
+  });
+
+  proposalCloseButtons.forEach(button => {
+    button.addEventListener('click', closeProposal);
+  });
+
+  proposalForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    if (!proposalForm.reportValidity()) return;
+
+    const { subject, body } = collectBriefing();
+    window.location.href = `mailto:comercial@gestech.co.mz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    closeProposal();
+  });
+
+  if (proposalWhatsappBtn) {
+    proposalWhatsappBtn.addEventListener('click', () => {
+      if (!proposalForm.reportValidity()) return;
+
+      const { body } = collectBriefing();
+      const whatsappURL = `https://wa.me/258842309083?text=${encodeURIComponent(body)}`;
+      window.open(whatsappURL, '_blank', 'noopener');
+      closeProposal();
+    });
+  }
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !proposalLayer.hidden) {
+      closeProposal();
+    }
+  });
+}
+
 // ==================== ACCESSIBILITY IMPROVEMENTS ====================
 function setupAccessibility() {
   const { navOpenBtn, navCloseBtn } = App.elements;
@@ -204,7 +394,7 @@ function setupAccessibility() {
     :focus-visible {
       outline: 3px solid var(--brand-primary, #2a6df4);
       outline-offset: 2px;
-      border-radius: 4px;
+      border-radius: 0;
     }
     
     .navbar-link:focus-visible,
@@ -221,7 +411,7 @@ function setupAccessibility() {
       color: white;
       padding: 8px 16px;
       z-index: 9999;
-      border-radius: var(--radius-sm, 6px);
+      border-radius: 0;
       text-decoration: none;
     }
     
@@ -282,6 +472,9 @@ function initializeApp() {
   setupNavbar();
   setupScrollEffects();
   setupStatsObserver();
+  setupRevealAnimations();
+  setupPointerDepth();
+  setupProposalDrawer();
   setupPerformanceOptimizations();
   
   App.initialized = true;

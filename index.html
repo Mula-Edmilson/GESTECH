@@ -1,58 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestech - Soluções corporativas integradas</title>
-  <meta name="description" content="Tecnologia, marketing e consultoria para empresas que querem crescer com eficiência e inovação.">
-  <meta name="keywords" content="consultoria, tecnologia, marketing, gestão, Moçambique">
-  
-  <!-- favicon -->
+  <title>GESTECH - Tecnologia, marketing e consultoria para empresas</title>
+  <meta name="description" content="A GESTECH ajuda empresas moçambicanas a aumentar vendas, automatizar processos e melhorar resultados com soluções inteligentes e acessíveis.">
+  <meta name="keywords" content="GESTECH, tecnologia, marketing, consultoria, websites, automação, ERP, branding, Moçambique">
+
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
-  
-  <!-- preload hero image -->
   <link rel="preload" as="image" href="./assets/images/hero-banner.jpg">
-  
-  <!-- google fonts -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- custom css -->
+
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/css/additional-styles.css">
 </head>
-
 <body id="top">
-  <!-- skip link para acessibilidade -->
   <a href="#main-content" class="skip-link" aria-label="Saltar para o conteúdo principal">Saltar para conteúdo</a>
 
-  <!-- #HEADER -->
   <header class="header" data-header>
     <div class="overlay" data-overlay aria-hidden="true"></div>
 
     <div class="header-top">
       <div class="container">
-        <a href="tel:+258842309083" class="helpline-box" aria-label="Linha de apoio">
+        <a href="tel:+258842309083" class="helpline-box" aria-label="Ligar para a GESTECH">
           <span class="icon-box" aria-hidden="true">
             <ion-icon name="call-outline"></ion-icon>
           </span>
           <span class="wrapper">
-            <span class="helpline-title">Para mais informações:</span>
+            <span class="helpline-title">Fale connosco</span>
             <span class="helpline-number">+258 8423 090 83</span>
           </span>
         </a>
 
-        <a href="#" class="logo" aria-label="Gestech homepage">
-          <img src="./assets/images/logo.svg" alt="Gestech logótipo" width="120" height="40">
+        <a href="#home" class="logo" aria-label="Página inicial da GESTECH">
+          <img src="./assets/images/logo.svg" alt="GESTECH logótipo" width="160" height="52">
         </a>
 
         <div class="header-btn-group">
-          <button class="search-btn" aria-label="Pesquisar">
-            <ion-icon name="search"></ion-icon>
-          </button>
+          <a href="#proposal-drawer" class="btn btn-primary header-cta header-cta-desktop js-open-proposal" data-service="Proposta Geral" aria-label="Solicitar proposta">Solicitar Proposta</a>
           <button class="nav-open-btn" aria-label="Abrir menu" data-nav-open-btn>
             <ion-icon name="menu-outline"></ion-icon>
           </button>
@@ -62,28 +51,28 @@
 
     <div class="header-bottom">
       <div class="container">
-        <ul class="social-list" aria-label="Redes sociais">
+        <ul class="social-list" aria-label="Redes sociais da GESTECH">
           <li>
             <a href="#" class="social-link" aria-label="Facebook">
               <ion-icon name="logo-facebook"></ion-icon>
             </a>
           </li>
           <li>
-            <a href="#" class="social-link" aria-label="Twitter">
-              <ion-icon name="logo-twitter"></ion-icon>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <ion-icon name="logo-instagram"></ion-icon>
             </a>
           </li>
           <li>
-            <a href="#" class="social-link" aria-label="YouTube">
-              <ion-icon name="logo-youtube"></ion-icon>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <ion-icon name="logo-linkedin"></ion-icon>
             </a>
           </li>
         </ul>
 
         <nav class="navbar" data-navbar aria-label="Navegação principal">
           <div class="navbar-top">
-            <a href="#" class="logo">
-              <img src="./assets/images/logo-blue.svg" alt="Gestech" width="120" height="40">
+            <a href="#home" class="logo" aria-label="Página inicial da GESTECH">
+              <img src="./assets/images/logo.svg" alt="GESTECH" width="160" height="52">
             </a>
             <button class="nav-close-btn" aria-label="Fechar menu" data-nav-close-btn>
               <ion-icon name="close-outline"></ion-icon>
@@ -92,429 +81,408 @@
 
           <ul class="navbar-list">
             <li><a href="#home" class="navbar-link" data-nav-link>Início</a></li>
-            <li><a href="#about" class="navbar-link" data-nav-link>Sobre nós</a></li>
-            <li><a href="#soluçoes" class="navbar-link" data-nav-link>Soluções</a></li>
+            <li><a href="#solutions" class="navbar-link" data-nav-link>Soluções</a></li>
             <li><a href="#services" class="navbar-link" data-nav-link>Serviços</a></li>
+            <li><a href="#about" class="navbar-link" data-nav-link>Sobre Nós</a></li>
             <li><a href="#contact" class="navbar-link" data-nav-link>Contactos</a></li>
           </ul>
+
+          <div class="navbar-mobile-cta">
+            <a href="#proposal-drawer" class="btn btn-primary js-open-proposal" data-service="Proposta Geral">Solicitar Proposta</a>
+            <a href="https://wa.me/258842309083" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          </div>
         </nav>
 
-        <button class="btn btn-primary" aria-label="Agendar sessão">Agendar Sessão</button>
+        <a href="#proposal-drawer" class="btn btn-primary header-cta header-cta-nav js-open-proposal" data-service="Proposta Geral" aria-label="Solicitar proposta">Solicitar Proposta</a>
       </div>
     </div>
   </header>
 
   <main id="main-content">
     <article>
-      <!-- #HERO -->
       <section class="hero" id="home" aria-labelledby="hero-heading">
         <div class="container">
-          <h1 id="hero-heading" class="h1 hero-title">Soluções para o seu negócio!</h1>
-          <p class="hero-text">
-            A GESTECH integra Tecnologia, Marketing e Consultoria para impulsionar resultados, eficiência e inovação no seu negócio.
-          </p>
-          <div class="btn-group">
-            <button class="btn btn-primary">Falar com um Consultor</button>
-            <button class="btn btn-secondary">Agendar Sessão</button>
+          <div class="hero-content">
+            <p class="section-subtitle hero-subtitle">Tecnologia · Marketing · Consultoria</p>
+            <h1 id="hero-heading" class="h1 hero-title">
+              <span class="hero-title-line">Soluções empresariais</span>
+              <span class="hero-title-line">para vender mais</span>
+              <span class="hero-title-line">e operar com mais controlo.</span>
+            </h1>
+            <p class="hero-text">
+              A GESTECH ajuda empresas moçambicanas a aumentar vendas, automatizar processos e melhorar resultados com soluções inteligentes, acessíveis e orientadas para crescimento real.
+            </p>
+
+            <div class="btn-group hero-actions">
+              <a href="https://wa.me/258842309083" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+              <a href="#proposal-drawer" class="btn btn-secondary js-open-proposal" data-service="Proposta Geral">Solicitar Proposta</a>
+            </div>
+
+            <ul class="hero-points" aria-label="Principais benefícios da GESTECH">
+              <li>Mais controlo operacional</li>
+              <li>Mais eficiência comercial</li>
+              <li>Mais crescimento com estratégia</li>
+            </ul>
           </div>
         </div>
       </section>
 
-      <!-- #ABOUT -->
+      <section class="solutions" id="solutions" aria-labelledby="solutions-heading">
+        <div class="container">
+          <p class="section-subtitle">Soluções</p>
+          <h2 id="solutions-heading" class="h2 section-title">Três áreas, um objectivo: melhorar resultados.</h2>
+          <p class="section-text">
+            Unimos tecnologia, marketing e consultoria para reduzir custos operacionais, aumentar vendas e dar mais clareza à gestão do seu negócio.
+          </p>
+
+          <div class="solutions-grid">
+            <article class="solution-card">
+              <span class="solution-index">01</span>
+              <h3 class="h3">Mais eficiência</h3>
+              <p>Automatizamos tarefas, organizamos fluxos e criamos sistemas que reduzem erros e atrasos.</p>
+            </article>
+
+            <article class="solution-card">
+              <span class="solution-index">02</span>
+              <h3 class="h3">Mais procura</h3>
+              <p>Melhoramos a presença da sua marca e criamos campanhas orientadas para atracção e conversão.</p>
+            </article>
+
+            <article class="solution-card">
+              <span class="solution-index">03</span>
+              <h3 class="h3">Mais controlo</h3>
+              <p>Transformamos dados e processos em decisões mais rápidas, seguras e sustentáveis.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="package" id="services" aria-labelledby="services-heading">
+        <div class="container">
+          <p class="section-subtitle">Serviços</p>
+          <h2 id="services-heading" class="h2 section-title">O que entregamos na prática.</h2>
+          <p class="section-text">
+            Serviços pensados para responder a necessidades reais de empresas que querem crescer com mais estrutura, eficiência e presença no mercado.
+          </p>
+
+          <ul class="package-list">
+            <li>
+              <article class="package-card">
+                <figure class="card-banner">
+                  <img src="./assets/images/package-1.jpg" alt="Infraestrutura e desenvolvimento tecnológico" loading="lazy">
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h3 card-title">Tecnologia</h3>
+                  <p class="card-text">Desenvolvemos soluções digitais adaptadas à operação e à gestão do seu negócio.</p>
+                  <ul class="service-points">
+                    <li>Sistemas de gestão, ERP, controlo de stock e faturação</li>
+                    <li>Desenvolvimento de websites profissionais</li>
+                    <li>Automação de processos e rotinas internas</li>
+                  </ul>
+                </div>
+
+                <div class="card-price">
+                  <span class="wrapper">
+                    <span class="reviews">Eficiência operacional</span>
+                  </span>
+                  <span class="price">Mais controlo <span>e produtividade</span></span>
+                  <a href="#proposal-drawer" class="btn btn-service js-open-proposal" data-service="Tecnologia">Solicitar Proposta</a>
+                </div>
+              </article>
+            </li>
+
+            <li>
+              <article class="package-card">
+                <figure class="card-banner">
+                  <img src="./assets/images/package-2.jpg" alt="Planeamento de marketing e branding" loading="lazy">
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h3 card-title">Marketing</h3>
+                  <p class="card-text">Ajudamos a sua empresa a ganhar visibilidade e a converter mais clientes.</p>
+                  <ul class="service-points">
+                    <li>Gestão de redes sociais</li>
+                    <li>Criação de campanhas e activação comercial</li>
+                    <li>Branding, posicionamento e comunicação</li>
+                  </ul>
+                </div>
+
+                <div class="card-price">
+                  <span class="wrapper">
+                    <span class="reviews">Crescimento comercial</span>
+                  </span>
+                  <span class="price">Mais alcance <span>e conversão</span></span>
+                  <a href="#proposal-drawer" class="btn btn-service js-open-proposal" data-service="Marketing">Solicitar Proposta</a>
+                </div>
+              </article>
+            </li>
+
+            <li>
+              <article class="package-card">
+                <figure class="card-banner">
+                  <img src="./assets/images/package-3.jpg" alt="Consultoria estratégica e análise empresarial" loading="lazy">
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h3 card-title">Consultoria</h3>
+                  <p class="card-text">Organizamos operações e criamos bases mais sólidas para a tomada de decisão.</p>
+                  <ul class="service-points">
+                    <li>Organização empresarial</li>
+                    <li>Definição de KPIs e métricas de desempenho</li>
+                    <li>Otimização de processos e melhoria contínua</li>
+                  </ul>
+                </div>
+
+                <div class="card-price">
+                  <span class="wrapper">
+                    <span class="reviews">Direcção estratégica</span>
+                  </span>
+                  <span class="price">Mais clareza <span>e organização</span></span>
+                  <a href="#proposal-drawer" class="btn btn-service js-open-proposal" data-service="Consultoria">Solicitar Proposta</a>
+                </div>
+              </article>
+            </li>
+          </ul>
+
+          <p class="services-note">
+            Ajudamos empresas a reduzir custos operacionais e aumentar vendas com tecnologia, marketing e organização.
+          </p>
+        </div>
+      </section>
+
       <section class="about" id="about" aria-labelledby="about-heading">
         <div class="container">
           <div class="about-grid">
             <div class="about-image">
-              <img src="./assets/images/about.jpg" alt="Equipa GESTECH em reunião estratégica" loading="lazy">
+              <img src="./assets/images/about.jpg" alt="Equipa da GESTECH em reunião" loading="lazy">
             </div>
+
             <div class="about-content">
-              <p class="section-subtitle">Quem Somos</p>
-              <h2 id="about-heading" class="h2 section-title">Sobre a GESTECH</h2>
+              <p class="section-subtitle">Sobre Nós</p>
+              <h2 id="about-heading" class="h2 section-title">Uma startup moçambicana focada em crescimento real.</h2>
               <p class="section-text">
-                A GESTECH é uma empresa multidisciplinar que actua nas áreas de IT, Marketing e Consultoria Empresarial, oferecendo soluções completas e personalizadas para empresas de diferentes sectores.
+                A GESTECH actua na intersecção entre tecnologia, marketing e consultoria para ajudar empresas a estruturar melhor a operação, comunicar melhor e crescer com mais consistência.
               </p>
-              <p class="section-text">
-                Com uma abordagem estratégica e foco em resultados, ajudamos organizações a modernizar processos, fortalecer a marca e tomar decisões mais assertivas.
+              <p class="section-text about-text-compact">
+                Trabalhamos com negócios que querem inovar, adaptar-se ao mundo digital e transformar decisões em resultados sustentáveis.
               </p>
-              <ul class="about-list">
-                <li>
-                  <ion-icon name="checkmark-circle-outline" aria-hidden="true"></ion-icon>
-                  <span>Soluções integradas num único parceiro</span>
-                </li>
-                <li>
-                  <ion-icon name="checkmark-circle-outline" aria-hidden="true"></ion-icon>
-                  <span>Equipa especializada e orientada a resultados</span>
-                </li>
-                <li>
-                  <ion-icon name="checkmark-circle-outline" aria-hidden="true"></ion-icon>
-                  <span>Foco em inovação, eficiência e crescimento sustentável</span>
-                </li>
-              </ul>
-              <button class="btn btn-primary">Conheça a Nossa Equipa</button>
             </div>
           </div>
-        </div>
-      </section>
 
-      <!-- #WHY CHOOSE US -->
-      <section class="why-choose" aria-labelledby="why-heading">
-        <div class="container">
-          <p class="section-subtitle">Vantagens</p>
-          <h2 id="why-heading" class="h2 section-title">Porque Escolher a GESTECH</h2>
-          <div class="why-grid">
-            <div class="why-card">
-              <div class="why-icon" aria-hidden="true">
-                <ion-icon name="layers-outline"></ion-icon>
-              </div>
-              <h3 class="h3">Visão Integrada de Negócio</h3>
-              <p>Analisamos o seu negócio como um todo, garantindo alinhamento entre tecnologia, marketing e gestão.</p>
-            </div>
-            <div class="why-card featured">
-              <div class="why-icon" aria-hidden="true">
-                <ion-icon name="expand-outline"></ion-icon>
-              </div>
-              <h3 class="h3">Soluções Práticas e Escaláveis</h3>
-              <p>Implementamos soluções que crescem consigo, preparadas para acompanhar a evolução do seu negócio.</p>
-            </div>
-            <div class="why-card">
-              <div class="why-icon" aria-hidden="true">
-                <ion-icon name="people-outline"></ion-icon>
-              </div>
-              <h3 class="h3">Atendimento Próximo e Personalizado</h3>
-              <p>Relação directa, acompanhamento contínuo e soluções adaptadas à realidade da sua empresa.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+          <div class="about-features">
+            <article class="feature-card">
+              <ion-icon name="flag-outline" aria-hidden="true"></ion-icon>
+              <h3>Missão</h3>
+              <p>Ajudar empresas a aumentar vendas, automatizar processos e crescer com soluções inteligentes e acessíveis.</p>
+            </article>
 
-      <!-- #STATS -->
-      <section class="stats" aria-labelledby="stats-heading">
-        <div class="container">
-          <p class="section-subtitle">Números que Falam</p>
-          <h2 id="stats-heading" class="h2 section-title">Resultados em Destaque</h2>
-          <div class="stats-grid">
-            <div class="stat-card">
+            <article class="feature-card">
+              <ion-icon name="eye-outline" aria-hidden="true"></ion-icon>
+              <h3>Visão</h3>
+              <p>Ser uma referência em transformação empresarial em Moçambique, unindo estratégia, inovação e execução.</p>
+            </article>
+
+            <article class="feature-card">
               <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
-              <h3 class="stat-number" data-target="120">0</h3>
-              <p>Clientes Atendidos</p>
-            </div>
-            <div class="stat-card">
-              <ion-icon name="briefcase-outline" aria-hidden="true"></ion-icon>
-              <h3 class="stat-number" data-target="5">0</h3>
-              <p>Anos de Experiência</p>
-            </div>
-            <div class="stat-card">
-              <ion-icon name="rocket-outline" aria-hidden="true"></ion-icon>
-              <h3 class="stat-number" data-target="250">0</h3>
-              <p>Projectos Entregues</p>
-            </div>
-            <div class="stat-card">
-              <ion-icon name="happy-outline" aria-hidden="true"></ion-icon>
-              <h3 class="stat-number" data-target="98">0</h3>
-              <p>% Satisfação</p>
-            </div>
+              <h3>Equipa</h3>
+              <p>Profissionais orientados para tecnologia, marketing e consultoria com foco em resultados concretos.</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <!-- #SOLUÇÕES -->
-      <section class="popular" id="soluçoes" aria-labelledby="solutions-heading">
-        <div class="container">
-          <p class="section-subtitle">O que fazemos</p>
-          <h2 id="solutions-heading" class="h2 section-title">Áreas de Actuação</h2>
-          <p class="section-text">
-            Soluções integradas para modernizar processos, fortalecer a sua marca e garantir o crescimento sustentável do seu negócio.
-          </p>
-          <ul class="popular-list">
-            <li>
-              <div class="popular-card">
-                <figure class="card-img">
-                  <img src="./assets/images/popular-1.jpg" alt="Engenheiro a trabalhar em servidores" loading="lazy">
-                </figure>
-                <div class="card-content">
-                  <div class="card-rating" aria-hidden="true">
-                    <ion-icon name="desktop-outline"></ion-icon>
-                  </div>
-                  <p class="card-subtitle"><a href="#">Tecnologia</a></p>
-                  <h3 class="h3 card-title"><a href="#">IT - Tecnologia da Informação</a></h3>
-                  <p class="card-text">Desenvolvemos e gerimos soluções que aumentam a produtividade, segurança e controlo do seu negócio.</p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="popular-card">
-                <figure class="card-img">
-                  <img src="./assets/images/popular-2.jpg" alt="Equipa a planear estratégia digital" loading="lazy">
-                </figure>
-                <div class="card-content">
-                  <div class="card-rating" aria-hidden="true">
-                    <ion-icon name="megaphone-outline"></ion-icon>
-                  </div>
-                  <p class="card-subtitle"><a href="#">Visibilidade</a></p>
-                  <h3 class="h3 card-title"><a href="#">Marketing Estratégico</a></h3>
-                  <p class="card-text">Estratégias que geram visibilidade, atraem clientes e impulsionam as suas vendas no mercado digital.</p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="popular-card">
-                <figure class="card-img">
-                  <img src="./assets/images/popular-3.jpg" alt="Consultor a analisar documentos" loading="lazy">
-                </figure>
-                <div class="card-content">
-                  <div class="card-rating" aria-hidden="true">
-                    <ion-icon name="briefcase-outline"></ion-icon>
-                  </div>
-                  <p class="card-subtitle"><a href="#">Gestão</a></p>
-                  <h3 class="h3 card-title"><a href="#">Consultoria & Corporativo</a></h3>
-                  <p class="card-text">Apoio desde a criação à gestão, integrando legalização, contabilidade e recursos humanos.</p>
-                </div>
-              </div>
-            </li>
-          </ul>
-          <button class="btn btn-secondary">Fale Connosco Hoje Mesmo</button>
-        </div>
-      </section>
-
-      <!-- #SERVIÇOS -->
-      <section class="package" id="services" aria-labelledby="services-heading">
-        <div class="container">
-          <p class="section-subtitle">Nossas Especialidades</p>
-          <h2 id="services-heading" class="h2 section-title">Soluções por Área</h2>
-          <p class="section-text">
-            Explore em detalhe como a GESTECH pode apoiar o crescimento e a modernização da sua empresa com serviços especializados.
-          </p>
-          <ul class="package-list">
-            <li>
-              <div class="package-card">
-                <figure class="card-banner">
-                  <img src="./assets/images/package-1.jpg" alt="Infraestrutura de servidores" loading="lazy">
-                </figure>
-                <div class="card-content">
-                  <h3 class="h3 card-title">IT & Tecnologia da Informação</h3>
-                  <p class="card-text">Garantimos que a sua infraestrutura tecnológica seja um motor de crescimento, não um obstáculo.</p>
-                  <ul class="card-meta-list">
-                    <li class="card-meta-item">
-                      <span class="meta-box">
-                        <ion-icon name="server-outline" aria-hidden="true"></ion-icon>
-                        <span class="text">Redes & ERP</span>
-                      </span>
-                    </li>
-                    <li class="card-meta-item">
-                      <span class="meta-box">
-                        <ion-icon name="shield-checkmark-outline" aria-hidden="true"></ion-icon>
-                        <span class="text">Cibersegurança</span>
-                      </span>
-                    </li>
-                    <li class="card-meta-item">
-                      <span class="meta-box">
-                        <ion-icon name="settings-outline" aria-hidden="true"></ion-icon>
-                        <span class="text">Suporte 24/7</span>
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-                <div class="card-price">
-                  <span class="wrapper">
-                    <span class="reviews">Foco em Produtividade</span>
-                  </span>
-                  <span class="price">Eficiência <span>Tecnológica</span></span>
-                  <button class="btn btn-secondary">Pedir Orçamento IT</button>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="package-card">
-                <figure class="card-banner">
-                  <img src="./assets/images/package-2.jpg" alt="Sessão de brainstorming criativo" loading="lazy">
-                </figure>
-                <div class="card-content">
-                  <h3 class="h3 card-title">Marketing & Presença Digital</h3>
-                  <p class="card-text">Construímos marcas fortes e estratégias de vendas online que convertem leads em clientes reais.</p>
-                  <ul class="card-meta-list">
-                    <li class="card-meta-item">
-                      <span class="meta-box">
-                        <ion-icon name="color-palette-outline" aria-hidden="true"></ion-icon>
-                        <span class="text">Design & Branding</span>
-                      </span>
-                    </li>
-                    <li class="card-meta-item">
-                      <span class="meta-box">
-                        <ion-icon name="trending-up-outline" aria-hidden="true"></ion-icon>
-                        <span class="text">Ads & Vendas</span>
-                      </span>
-                    </li>
-                    <li class="card-meta-item">
-                      <span class="meta-box">
-                        <ion-icon name="share-social-outline" aria-hidden="true"></ion-icon>
-                        <span class="text">Redes Sociais</span>
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-                <div class="card-price">
-                  <span class="wrapper">
-                    <span class="reviews">Foco em Resultados</span>
-                  </span>
-                  <span class="price">Crescimento <span>Digital</span></span>
-                  <button class="btn btn-secondary">Impulsionar Marca</button>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="package-card">
-                <figure class="card-banner">
-                  <img src="./assets/images/package-3.jpg" alt="Equipe em reunião de gestão" loading="lazy">
-                </figure>
-                <div class="card-content">
-                  <h3 class="h3 card-title">Consultoria & Serviços Corporativos</h3>
-                  <p class="card-text">Acompanhamento especializado desde a legalização até à gestão estratégica de recursos humanos.</p>
-                  <ul class="card-meta-list">
-                    <li class="card-meta-item">
-                      <span class="meta-box">
-                        <ion-icon name="document-text-outline" aria-hidden="true"></ion-icon>
-                        <span class="text">Contabilidade</span>
-                      </span>
-                    </li>
-                    <li class="card-meta-item">
-                      <span class="meta-box">
-                        <ion-icon name="business-outline" aria-hidden="true"></ion-icon>
-                        <span class="text">Legalização</span>
-                      </span>
-                    </li>
-                    <li class="card-meta-item">
-                      <span class="meta-box">
-                        <ion-icon name="people-circle-outline" aria-hidden="true"></ion-icon>
-                        <span class="text">Gestão de RH</span>
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-                <div class="card-price">
-                  <span class="wrapper">
-                    <span class="reviews">Foco em Estratégia</span>
-                  </span>
-                  <span class="price">Gestão <span>Assertiva</span></span>
-                  <button class="btn btn-secondary">Agendar Sessão</button>
-                </div>
-              </div>
-            </li>
-          </ul>
-          <button class="btn btn-primary">Ver Todos os Serviços</button>
-        </div>
-      </section>
-
-      <!-- #TESTIMONIALS -->
-      <section id="testimonials" class="testimonials-section" aria-labelledby="testimonials-heading">
-        <div class="container">
-          <div class="testimonials-header">
-            <span class="section-badge">TESTEMUNHOS</span>
-            <h2 id="testimonials-heading" class="h2">O Que Dizem os Nossos Clientes</h2>
-            <p>Empresas que confiam na GESTECH para crescer com tecnologia, marketing e estratégia.</p>
-          </div>
-          <div class="testimonials-grid">
-            <blockquote class="testimonial-card">
-              <p class="testimonial-text">"A GESTECH ajudou-nos a modernizar processos e melhorar a nossa presença digital. Resultados visíveis em poucos meses."</p>
-              <footer class="testimonial-author">
-                <strong>João Matola</strong>
-                <span>Director Geral · Empresa X</span>
-              </footer>
-            </blockquote>
-            <blockquote class="testimonial-card">
-              <p class="testimonial-text">"Equipa profissional, próxima e focada em resultados. Recomendo para qualquer empresa que queira crescer."</p>
-              <footer class="testimonial-author">
-                <strong>Ana Silva</strong>
-                <span>Gestora de Marketing · Empresa Y</span>
-              </footer>
-            </blockquote>
-            <blockquote class="testimonial-card">
-              <p class="testimonial-text">"Soluções práticas, comunicação clara e excelente acompanhamento. Um verdadeiro parceiro estratégico."</p>
-              <footer class="testimonial-author">
-                <strong>Carlos Mucavele</strong>
-                <span>CEO · Empresa Z</span>
-              </footer>
-            </blockquote>
-          </div>
-        </div>
-      </section>
-
-      <!-- #CTA -->
       <section class="cta" id="contact" aria-labelledby="cta-heading">
         <div class="container">
           <div class="cta-content">
-            <h2 id="cta-heading" class="h2 section-title">Preparado para levar seu negócio para outro patamar?</h2>
+            <p class="section-subtitle section-subtitle-light">Contactos</p>
+            <h2 id="cta-heading" class="h2 section-title">Pronto para levar o seu negócio para o próximo nível?</h2>
             <p class="section-text">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+              Fale connosco hoje mesmo e descubra como podemos ajudar a sua empresa a crescer com mais eficiência, estratégia e presença no mercado.
             </p>
           </div>
-          <button class="btn btn-secondary">Contacte-nos!</button>
+
+          <div class="cta-actions">
+            <a href="https://wa.me/258842309083" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+            <a href="#proposal-drawer" class="btn btn-secondary btn-secondary-light js-open-proposal" data-service="Proposta Geral">Solicitar Proposta</a>
+          </div>
+
         </div>
       </section>
     </article>
   </main>
 
-  <!-- #FOOTER -->
   <footer class="footer">
     <div class="footer-top">
       <div class="container">
         <div class="footer-brand">
-          <a href="#" class="logo" aria-label="Gestech homepage">
-            <img src="./assets/images/logo.svg" alt="Gestech" width="120" height="40">
+          <a href="#home" class="logo" aria-label="Página inicial da GESTECH">
+            <img src="./assets/images/logo.svg" alt="GESTECH" width="180" height="58">
           </a>
           <p class="footer-text">
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+            Tecnologia, marketing e consultoria orientados para crescimento empresarial com mais estrutura, clareza e resultados.
           </p>
-        </div>
-        <div class="footer-contact">
-          <h4 class="contact-title">Contacte-nos</h4>
-          <p class="contact-text">Sinta-se à vontade para nos alcançar!</p>
-          <ul>
-            <li class="contact-item">
-              <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-              <a href="tel:+258842309083" class="contact-link">+258 8423 090 83</a>
+          <ul class="social-list footer-social-list" aria-label="Redes sociais da GESTECH">
+            <li>
+              <a href="#" class="social-link" aria-label="Facebook">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
             </li>
-            <li class="contact-item">
-              <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
-              <a href="mailto:gestech.co.mz" class="contact-link">gestech.co.mz</a>
+            <li>
+              <a href="#" class="social-link" aria-label="Instagram">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
             </li>
-            <li class="contact-item">
-              <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-              <address>Maputo, Matola</address>
+            <li>
+              <a href="#" class="social-link" aria-label="LinkedIn">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
             </li>
           </ul>
         </div>
+
+        <div class="footer-contact">
+          <h4 class="contact-title">Contactos</h4>
+          <p class="contact-text">Estamos disponíveis para ouvir o seu desafio e apresentar uma solução ajustada ao seu negócio.</p>
+          <ul>
+            <li class="contact-item">
+              <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+              <div>
+                <a href="mailto:comercial@gestech.co.mz" class="contact-link">comercial@gestech.co.mz</a>
+                <a href="mailto:geral@gestech.co.mz" class="contact-link footer-secondary-link">geral@gestech.co.mz</a>
+              </div>
+            </li>
+            <li class="contact-item">
+              <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+              <div>
+                <a href="tel:+258842309083" class="contact-link">+258 8423 090 83</a>
+                <a href="tel:+258828638597" class="contact-link footer-secondary-link">+258 82 863 859 7</a>
+              </div>
+            </li>
+            <li class="contact-item">
+              <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+              <address>Rua da resistência nº479, Maputo</address>
+            </li>
+          </ul>
+        </div>
+
         <div class="footer-form">
-          <p class="form-text">Subscreve para estar a par de todas as novidades.</p>
-          <form action="#" class="form-wrapper" aria-label="Newsletter">
-            <input type="email" name="email" class="input-field" placeholder="Seu Email" required aria-label="O seu email">
-            <button type="submit" class="btn btn-secondary">Subscrever</button>
-          </form>
+          <h4 class="contact-title">Novidades</h4>
+          <p class="form-text">Receba conteúdos exclusivos, novidades e soluções para impulsionar o seu negócio.</p>
+          <a href="mailto:geral@gestech.co.mz?subject=Quero%20receber%20novidades%20da%20GESTECH" class="btn btn-secondary footer-newsletter-btn">Subscrever por email</a>
         </div>
       </div>
     </div>
+
     <div class="footer-bottom">
       <div class="container">
         <p class="copyright">
-          &copy; 2026 <a href="#" aria-label="GESTECH homepage">GESTECH</a>. Todos direitos reservados
+          &copy; 2026 <a href="#home" aria-label="Página inicial da GESTECH">GESTECH</a>. Todos os direitos reservados.
         </p>
         <ul class="footer-bottom-list">
-          <li><a href="#" class="footer-bottom-link">Políticas de Privacidade</a></li>
-          <li><a href="#" class="footer-bottom-link">Termos & Condições</a></li>
-          <li><a href="#" class="footer-bottom-link">FAQ</a></li>
+          <li><a href="#solutions" class="footer-bottom-link">Soluções</a></li>
+          <li><a href="#services" class="footer-bottom-link">Serviços</a></li>
+          <li><a href="#contact" class="footer-bottom-link">Contactos</a></li>
         </ul>
       </div>
     </div>
   </footer>
 
-  <!-- #GO TO TOP -->
   <a href="#top" class="go-top" data-go-top aria-label="Voltar ao topo">
     <ion-icon name="chevron-up-outline"></ion-icon>
   </a>
 
-  <!-- custom js -->
-  <script src="./assets/js/script.js"></script>
+  <div class="proposal-layer" data-proposal-layer hidden>
+    <div class="proposal-backdrop" data-proposal-close></div>
+    <aside class="proposal-drawer" id="proposal-drawer" aria-hidden="true" aria-labelledby="proposal-title" tabindex="-1">
+      <div class="proposal-drawer__header">
+        <div>
+          <p class="proposal-kicker">Solicitar proposta</p>
+          <h2 id="proposal-title">Briefing de projecto</h2>
+          <p class="proposal-intro">Preencha os dados essenciais para prepararmos uma proposta mais clara, rápida e ajustada ao seu negócio.</p>
+        </div>
+        <button type="button" class="proposal-close" data-proposal-close aria-label="Fechar formulário de proposta">
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+      </div>
 
-  <!-- ionicon -->
+      <form class="proposal-form" data-proposal-form>
+        <div class="proposal-grid proposal-grid--two">
+          <label class="proposal-field">
+            <span>Nome *</span>
+            <input type="text" name="nome" autocomplete="name" required>
+          </label>
+          <label class="proposal-field">
+            <span>Empresa *</span>
+            <input type="text" name="empresa" autocomplete="organization" required>
+          </label>
+        </div>
+
+        <div class="proposal-grid proposal-grid--two">
+          <label class="proposal-field">
+            <span>Telefone / WhatsApp *</span>
+            <input type="tel" name="telefone" autocomplete="tel" required>
+          </label>
+          <label class="proposal-field">
+            <span>Email *</span>
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+        </div>
+
+        <div class="proposal-grid proposal-grid--two">
+          <label class="proposal-field">
+            <span>Serviço pretendido *</span>
+            <select name="servico" required>
+              <option value="">Seleccionar</option>
+              <option value="Tecnologia">Tecnologia</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Consultoria">Consultoria</option>
+              <option value="Proposta Geral">Proposta Geral</option>
+            </select>
+          </label>
+          <label class="proposal-field">
+            <span>Prazo desejado</span>
+            <input type="text" name="prazo" placeholder="Ex.: 2 semanas / este mês">
+          </label>
+        </div>
+
+        <label class="proposal-field">
+          <span>Objectivo principal *</span>
+          <textarea name="objetivo" rows="3" placeholder="Explique o que pretende alcançar com este projecto." required></textarea>
+        </label>
+
+        <label class="proposal-field">
+          <span>Situação actual / necessidade *</span>
+          <textarea name="necessidade" rows="4" placeholder="Descreva o cenário actual, desafios, falhas ou oportunidades identificadas." required></textarea>
+        </label>
+
+        <div class="proposal-grid proposal-grid--two">
+          <label class="proposal-field">
+            <span>Orçamento estimado</span>
+            <input type="text" name="orcamento" placeholder="Ex.: ainda em definição / intervalo disponível">
+          </label>
+          <label class="proposal-field">
+            <span>Website / redes sociais</span>
+            <input type="text" name="website" placeholder="Link do site, página ou Instagram">
+          </label>
+        </div>
+
+        <label class="proposal-field">
+          <span>Observações adicionais</span>
+          <textarea name="observacoes" rows="3" placeholder="Qualquer detalhe que ajude a preparar uma proposta mais precisa."></textarea>
+        </label>
+
+        <p class="proposal-note">Ao enviar, o briefing será preparado no seu email ou WhatsApp para contacto directo com a GESTECH.</p>
+
+        <div class="proposal-actions">
+          <button type="submit" class="btn btn-primary">Enviar por Email</button>
+          <button type="button" class="btn btn-secondary-light proposal-whatsapp" data-proposal-whatsapp>Enviar no WhatsApp</button>
+        </div>
+      </form>
+    </aside>
+  </div>
+
+  <script src="./assets/js/script.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

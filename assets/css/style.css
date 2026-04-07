@@ -218,18 +218,18 @@ body {
   text-transform: uppercase;
   font-family: var(--ff-montserrat);
   margin-bottom: 8px;
-  text-align: center;
+  text-align: start;
 }
 
 .section-title {
   margin-bottom: 15px;
-  text-align: center;
+  text-align: start;
 }
 
 .section-text {
   color: var(--text-muted);
   margin-bottom: 30px;
-  text-align: center;
+  text-align: start;
   max-width: 60ch;
   margin-inline: auto;
 }
@@ -312,9 +312,7 @@ body {
   color: inherit;
 }
 
-.search-btn {
-  font-size: 20px;
-}
+
 
 .header-bottom {
   border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
@@ -441,12 +439,12 @@ body {
   display: grid;
   place-items: center;
   min-height: 600px;
-  text-align: center;
+  text-align: start;
   padding-top: 125px;
 }
 
 .hero-title {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .hero-text {
@@ -1251,8 +1249,8 @@ address {
     --padding: 12px 30px;
   }
 
-  section:not(.cta) :is(.section-subtitle, .section-title, .section-text) {
-    text-align: center;
+  section:not(.cta) :is(.section-subtitle, .section-title, .section-text,.hero-heading, .hero-text) {
+    text-align: start;
   }
 
   .section-text {
